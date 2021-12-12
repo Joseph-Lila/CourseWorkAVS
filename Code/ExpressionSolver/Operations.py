@@ -15,7 +15,7 @@ class Operations:
     def op_minus(stack):
         a = stack[0]
         b = stack[1]
-        ans = a - b
+        ans = b - a
         stack.pop(0)
         stack.pop(0)
         return ans
@@ -24,7 +24,7 @@ class Operations:
     def op_mul(stack):
         a = stack[0]
         b = stack[1]
-        ans = a * b
+        ans = b * a
         stack.pop(0)
         stack.pop(0)
         return ans
@@ -33,7 +33,7 @@ class Operations:
     def op_div(stack):
         a = stack[0]
         b = stack[1]
-        ans = a / b
+        ans = b / a
         stack.pop(0)
         stack.pop(0)
         return ans
@@ -42,7 +42,7 @@ class Operations:
     def op_deg(stack):
         a = stack[0]
         b = stack[1]
-        ans = a ** b
+        ans = b ** a
         stack.pop(0)
         stack.pop(0)
         return ans
@@ -57,7 +57,7 @@ class Operations:
     def op_odiv(stack):
         a = stack[0]
         b = stack[1]
-        ans = a % b
+        ans = b % a
         stack.pop(0)
         stack.pop(0)
         return ans
