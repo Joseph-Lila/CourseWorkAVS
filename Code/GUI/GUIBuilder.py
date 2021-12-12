@@ -1,16 +1,15 @@
 from kivy.uix.gridlayout import GridLayout
 from kivymd.uix.label import MDLabel
-from kivymd.app import MDApp
-from kivy.uix.label import Label
-from kivy.uix.button import Button
-from kivy.uix.floatlayout import FloatLayout
 from kivymd.uix.textfield import MDTextField
 from kivymd.uix.card import MDCard
+from kivymd.uix.button import MDFillRoundFlatButton, MDFillRoundFlatIconButton
+from kivy.uix.image import Image
+from kivymd.uix.filemanager import MDFileManager
 
 
 class GUIBuilder:
     @staticmethod
-    def get_input():
+    def my_text_field():
         my_input = MDTextField(
             pos_hint={"center_x": .5},
             icon_right_color=[1, 0, 1, 1],
@@ -28,7 +27,7 @@ class GUIBuilder:
         return my_input
 
     @staticmethod
-    def get_label():
+    def my_label():
         label = MDLabel(
             font_style='Button',
             halign='center',
@@ -39,7 +38,7 @@ class GUIBuilder:
         return label
 
     @staticmethod
-    def get_card():
+    def my_card():
         card = MDCard(
             size_hint=(.7, .8),
             pos_hint={"center_x": .5, "center_y": .5},
@@ -50,3 +49,43 @@ class GUIBuilder:
             md_bg_color=[10 / 255, 10 / 255, 140 / 255, 100 / 255]
         )
         return card
+
+    @staticmethod
+    def my_button():
+        button = MDFillRoundFlatButton(
+            pos_hint={"center_x": .5},
+            font_size=15,
+            md_bg_color=[40 / 255, 40 / 255, 180 / 255, 100 / 255],
+            text_color=[1, 1, 1, 1],
+            size_hint_x=None
+        )
+        return button
+
+    @staticmethod
+    def my_icon_button():
+        button = MDFillRoundFlatIconButton(
+            pos_hint={"center_x": .5},
+            font_size=15,
+            md_bg_color=[40 / 255, 40 / 255, 180 / 255, 100 / 255],
+            text_color=[1, 1, 1, 1],
+            size_hint_x=None
+        )
+        return button
+
+    @staticmethod
+    def my_image():
+        image = Image(
+            pos_hint={"center_x": .5, "center_y": .5},
+            allow_stretch=True,
+            size_hint=(1, 1)
+        )
+        return image
+
+    @staticmethod
+    def my_grid_layout():
+        return GridLayout()
+
+    @staticmethod
+    def my_file_manager():
+        elem = MDFileManager()
+        return elem
