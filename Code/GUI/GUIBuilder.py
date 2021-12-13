@@ -6,60 +6,66 @@ from kivymd.uix.card import MDCard
 from kivymd.uix.button import MDFillRoundFlatButton, MDFillRoundFlatIconButton
 from kivy.uix.image import Image
 from kivymd.uix.filemanager import MDFileManager
+from kivy.uix.widget import Widget
 
 
 class GUIBuilder:
     @staticmethod
     def my_text_field():
-        my_input = MDTextField(
-            pos_hint={"center_x": .5},
-            icon_right_color=[1, 0, 1, 1],
-            helper_text='Check the field!',
-            helper_text_mode='on_error',
-            color_mode='primary',
-            mode='rectangle',
-            size_hint_y=None,
-            size_hint_x=None,
-            height=40,
-            font_size=20,
-            width=220,
-            write_tab=False,
-        )
+        my_input = MDTextField()
+        my_input.pos_hint = {"center_x": .5}
+        my_input.icon_right_color = (1, 1, 1, 1)
+        my_input.size_hint = (None, None)
+        my_input.font_size = 25
+        my_input.mode = 'rectangle'
+        my_input.color_mode = 'accent'
+        my_input.width = 200
+        my_input.write_tab = False
+        my_input.text_color = (255 / 255, 215 / 255, 0 / 255, 1)
+        my_input.md_bg_color = (255 / 255, 215 / 255, 0 / 255, 1)
         return my_input
 
     @staticmethod
+    def my_widget():
+        widget = Widget()
+        widget.pos_hint = {"center_x": .5}
+        widget.size_hint = (None, None)
+        return widget
+
+    @staticmethod
     def my_label():
-        label = MDLabel(
-            font_style='Button',
-            halign='center',
-            size_hint_y=None,
-            text="Hi",
-            color=[40 / 255, 40 / 255, 180 / 255, 150 / 255]
-        )
+        label = MDLabel()
+        label.pos_hint = {"center_x": .5}
+        label.halign = "center"
+        label.size_hint = (None, None)
+        label.text = "Hi"
+        label.font_size = 25
+        label.width = 100
+        label.height = 68
+        label.color = (40 / 255, 40 / 255, 180 / 255, 255 / 255)
+        label.md_bg_color = (40 / 255, 40 / 255, 180 / 255, 150 / 255)
         return label
 
     @staticmethod
     def my_card():
-        card = MDCard(
-            size_hint=(.7, .8),
-            pos_hint={"center_x": .5, "center_y": .5},
-            elevation=15,
-            padding=20,
-            spacing=20,
-            orientation='vertical',
-            md_bg_color=[10 / 255, 10 / 255, 140 / 255, 100 / 255]
-        )
+        card = MDCard()
+        card.size_hint = (.7, .8)
+        card.pos_hint = {"center_x": .5, "center_y": .5}
+        card.elevation = 15
+        card.padding = 20
+        card.spacing = 20
+        card.orientation = 'vertical'
+        card.md_bg_color = [255/255, 151/255, 187/255, 1]
         return card
 
     @staticmethod
     def my_button():
         button = MDFillRoundFlatButton(
             pos_hint={"center_x": .5},
-            font_size=30,
-            md_bg_color=[40 / 255, 40 / 255, 180 / 255, 100 / 255],
-            text_color=[1, 1, 1, 1],
-            size_hint_x=None,
-            text='1111111111111111111111111111111111111'
+            font_size=20,
+            md_bg_color=[10 / 255, 10 / 255, 140 / 255, 100 / 255],
+            text_color=[0, 0, 0, 1],
+            size_hint_x=None
         )
         return button
 
@@ -85,7 +91,11 @@ class GUIBuilder:
 
     @staticmethod
     def my_grid_layout():
-        return GridLayout()
+        grid = GridLayout()
+        grid.spacing = 15
+        grid.pos_hint = {"center_x": .5, "center_y": .5}
+        grid.minimum_height = 1
+        return grid
 
     @staticmethod
     def my_box_layout():
