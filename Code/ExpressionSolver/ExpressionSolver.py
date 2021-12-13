@@ -1,6 +1,8 @@
 from Code.ExpressionSolver.Token import Token
 from Code.ExpressionSolver.TokenType import TokenType
 from Code.ExpressionSolver.Operations import Operations
+from Code.Graph.Graph import Graph
+from Code.PointsKeeper.PointsKeeper import points_set
 
 
 class ExpressionSolver:
@@ -163,6 +165,8 @@ class ExpressionSolver:
         return s[0]
 
     def calculate(self, input_str, quantity_variables):
+        if len(points_set()) >= Graph.limit:
+            return None
         expression = self.read_expression_from_str(input_str, quantity_variables)
         if expression is not None:
             if self.create_tokens_from_expression(expression):
