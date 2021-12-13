@@ -14,15 +14,12 @@ class GUIBuilder:
     def my_text_field():
         my_input = MDTextField()
         my_input.pos_hint = {"center_x": .5}
-        my_input.icon_right_color = (1, 1, 1, 1)
         my_input.size_hint = (None, None)
         my_input.font_size = 25
         my_input.mode = 'rectangle'
         my_input.color_mode = 'accent'
         my_input.width = 200
         my_input.write_tab = False
-        my_input.text_color = (255 / 255, 215 / 255, 0 / 255, 1)
-        my_input.md_bg_color = (255 / 255, 215 / 255, 0 / 255, 1)
         return my_input
 
     @staticmethod
