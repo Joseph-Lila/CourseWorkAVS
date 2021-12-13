@@ -1,3 +1,4 @@
+from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
 from kivymd.uix.label import MDLabel
 from kivymd.uix.textfield import MDTextField
@@ -54,10 +55,11 @@ class GUIBuilder:
     def my_button():
         button = MDFillRoundFlatButton(
             pos_hint={"center_x": .5},
-            font_size=15,
+            font_size=30,
             md_bg_color=[40 / 255, 40 / 255, 180 / 255, 100 / 255],
             text_color=[1, 1, 1, 1],
-            size_hint_x=None
+            size_hint_x=None,
+            text='1111111111111111111111111111111111111'
         )
         return button
 
@@ -84,6 +86,10 @@ class GUIBuilder:
     @staticmethod
     def my_grid_layout():
         return GridLayout()
+
+    @staticmethod
+    def my_box_layout():
+        return BoxLayout()
 
     @staticmethod
     def my_file_manager():
