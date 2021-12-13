@@ -8,6 +8,7 @@ class Graph(MDCard):
 
     def __init__(self, **kwargs):
         super(Graph, self).__init__(**kwargs)
+        self.update_plt()
 
     def update_plt(self, *args):
         self.clear_widgets()

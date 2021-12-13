@@ -1,5 +1,6 @@
 from kivymd.app import MDApp
 from Code.Logic.GUILogicBuilder import GUILogicBuilder
+from Code.Logic.GUILogicBinder import GUILogicBinder
 
 
 class GUILogic(MDApp):
@@ -10,7 +11,13 @@ class GUILogic(MDApp):
     def build(self):
         self.theme_cls.theme_style = 'Dark'
         self.theme_cls.primary_palette = 'DeepPurple'
-        return GUILogicBuilder.form_main_cont()
+        main_cont, widgets = GUILogicBuilder.form_main_cont()
+        for key, value in widgets.items():
+            print(key, " -> ", value)
+        binder = GUILogicBinder(widgets)
+        binder.bind_widgets()
+
+        return main_cont
 
 
 
