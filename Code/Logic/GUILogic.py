@@ -12,12 +12,6 @@ class GUILogic(MDApp):
         self.theme_cls.theme_style = 'Dark'
         self.theme_cls.primary_palette = 'DeepPurple'
         main_cont, widgets = GUILogicBuilder.form_main_cont()
-        # for key, value in widgets.items():
-        #     print(key, " -> ", value)
         binder = GUILogicBinder(widgets)
         binder.bind_widgets()
-
         return main_cont
-
-
-
