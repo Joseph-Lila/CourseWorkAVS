@@ -4,9 +4,14 @@ from Code.PointsKeeper.PointsKeeper import clear_points_sets, add_points_set, po
 from plyer import filechooser
 from kivymd.toast import toast
 import csv
+from Code.GUI.Notification import Notification
+from Code.Validation.Validator import Validator
 
 
 class GUILogicBinder:
+    dialog = None
+    note = Notification(dialog)
+
     def __init__(self, widgets):
         self.widgets = widgets
         self.functions = dict()
@@ -31,6 +36,9 @@ class GUILogicBinder:
             self.widgets[key].bind(on_press=partial(self.functions[key], self.params[key]))
 
     def send_points_after_calculation(self, *args):
+        if not Validator(self.widgets).check_txt_fields_not_empty():
+            self.note.universal_note('Не все поля заполнены!', [])
+            return None
         try:
             kwargs = {
                         "u": "(" + self.widgets["txt_field_A0"].text + ") * 1 + (" +
@@ -44,6 +52,11 @@ class GUILogicBinder:
                         "yb": float(self.widgets["txt_field_y_b"].text)
                     }
         except:
+            self.note.universal_note('Некорректная запись!\n'
+                                     'Доступны следующие функции:\n'
+                                     '+; -; *; /; ^; -(); %; sin(); cos();\n'
+                                     'tan(); asin(); acos(); atan()...\n'
+                                     "И следующие переменные: x, y, z (z = y')", [])
             return None
         points = FiringMethod(
             kwargs["u"],
@@ -60,6 +73,7 @@ class GUILogicBinder:
         try:
             path = filechooser.open_file()[0]
         except:
+            self.note.universal_note('Вы не выбрали файл!', [])
             return False
         toast(path)
         self.file_manager_answer = path
@@ -77,8 +91,6 @@ class GUILogicBinder:
                     except:
                         clear_points_sets()
                         return False
-                        pass
-                        # note
                 clear_points_sets()
                 add_points_set(outcome)
                 return True
