@@ -1,12 +1,5 @@
-from kivy.core.window import Window
-from Code.Logic.GUILogic import GUILogic
-
-
-def main():
-    Window.maximize()
-    GUILogic().run()
+from Code.GUI.Body import Body
 
 
 if __name__ == "__main__":
-    main()
-
+    Body().master.mainloop()

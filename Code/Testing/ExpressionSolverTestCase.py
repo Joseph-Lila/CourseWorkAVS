@@ -24,7 +24,7 @@ class ExpressionSolverTestCase(unittest.TestCase):
         solver = ExpressionSolver()
         expression = solver.read_expression_from_str(["sin(x)", "x=1.57"], 1)
         if expression is not None:
-            solver.create_tokens_from_expression("sin(x)")
+            solver.create_tokens_from_expression(expression)
             self.assertEqual(len(solver.tokens), 4)
             self.assertEqual(solver.tokens[0].type, TokenType.func)
             self.assertEqual(solver.tokens[1].type, TokenType.op_br)
@@ -47,6 +47,7 @@ class ExpressionSolverTestCase(unittest.TestCase):
             self.assertEqual(solver.postfix_tokens[0].name, "x")
             self.assertEqual(solver.postfix_tokens[1].name, "sin")
             self.assertEqual(solver.postfix_tokens[2].name, "y")
+            self.assertEqual(solver.postfix_tokens[3].name, "+")
 
     def test_create_ops(self):
         solver = ExpressionSolver()

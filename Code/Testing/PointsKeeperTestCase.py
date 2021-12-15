@@ -9,7 +9,7 @@ class PointsKeeperTestCase(unittest.TestCase):
         add_points_set(points_set_)
         self.assertEqual(points_set_, points_set())
         clear_points_sets()
-        self.assertEqual([[], []], points_set())
+        self.assertEqual([[[], []]], points_set())
 
     def test_add_points(self):
         clear_points_sets()

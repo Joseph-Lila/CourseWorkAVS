@@ -1,16 +1,12 @@
 from Code.ExpressionSolver.Token import Token
 from Code.ExpressionSolver.TokenType import TokenType
 from Code.ExpressionSolver.Operations import Operations
-from Code.Graph.Graph import Graph
-from Code.PointsKeeper.PointsKeeper import points_set
-from Code.GUI.Notification import Notification
 
 
 class ExpressionSolver:
     delimiters = " ()+/*-^%"
     delimiters_set = set(delimiters)
     dialog = None
-    note = Notification(dialog)
 
     def __init__(self):
         self.variables = dict()
@@ -169,9 +165,6 @@ class ExpressionSolver:
 
     def calculate(self, input_str, quantity_variables):
         try:
-            if len(points_set()) >= Graph.limit:
-                self.note.universal_note('Вы достигли предела - 10 графиков.', [])
-                return None
             expression = self.read_expression_from_str(input_str, quantity_variables)
             if expression is not None:
                 if self.create_tokens_from_expression(expression):

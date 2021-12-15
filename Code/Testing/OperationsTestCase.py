@@ -17,8 +17,8 @@ class OperationsTestCase(unittest.TestCase):
         lst = [1, 1]
         self.assertEqual(0, function(lst))
         self.assertEqual([], lst)
-        self.assertEqual(-5, function([0, 5]))
-        self.assertEqual(-600, function([200, 800]))
+        self.assertEqual(-5, function([5, 0]))
+        self.assertEqual(-600, function([800, 200]))
 
     def test_op_mul(self):
         function = Operations.op_mul
@@ -33,16 +33,16 @@ class OperationsTestCase(unittest.TestCase):
         lst = [1, 1]
         self.assertEqual(1, function(lst))
         self.assertEqual([], lst)
-        self.assertEqual(-0.2, function([-1, 5]))
-        self.assertEqual(4, function([20, 5]))
+        self.assertEqual(-0.2, function([5, -1]))
+        self.assertEqual(4, function([5, 20]))
 
     def test_op_deg(self):
         function = Operations.op_deg
         lst = [1, 1]
         self.assertEqual(1, function(lst))
         self.assertEqual([], lst)
-        self.assertEqual(8, function([2, 3]))
-        self.assertEqual(100, function([10, 2]))
+        self.assertEqual(9, function([2, 3]))
+        self.assertEqual(100, function([2, 10]))
 
     def test_op_opposite(self):
         function = Operations.op_opposite
@@ -54,11 +54,11 @@ class OperationsTestCase(unittest.TestCase):
 
     def test_op_odiv(self):
         function = Operations.op_odiv
-        lst = [1, 4]
+        lst = [4, 1]
         self.assertEqual(1, function(lst))
         self.assertEqual([], lst)
-        self.assertEqual(10, function([10, 11]))
-        self.assertEqual(3.3, function([3.3, 4]))
+        self.assertEqual(10, function([11, 10]))
+        self.assertEqual(3.3, function([4, 3.3]))
 
     def test_op_sin(self):
         function = Operations.op_sin
