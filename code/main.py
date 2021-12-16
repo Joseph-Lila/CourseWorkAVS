@@ -1,4 +1,4 @@
-from Code.GUI.Body import Body
+from code.gui.Body import Body
 
 
 if __name__ == "__main__":
